@@ -1,2 +1,2 @@
 # Linux
-Project, Practice(commands, file structure etc)
+Practice(commands, file structure etc)
