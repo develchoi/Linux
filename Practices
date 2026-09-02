@@ -1,6 +1,6 @@
 Linux command pratice
 
---- no.1 ---
+--- no.0 ---
 ────────────────────────────────────────────
 ######################## 리눅스의 명령어 스터디 과제 ##########################
 ########## 텍스트 내용 검색(Filtering)과 **'문자열 가공(Parsing 및 Counting) ############
@@ -30,7 +30,7 @@ Linux command pratice
 
 
 
---- no.2 ---
+--- no.1 ---
 ────────────────────────────────────────────
  TASK 01 — 운영 작업공간 구축
 ────────────────────────────────────────────
@@ -54,7 +54,7 @@ linux-ops-challenge/
 
 
 
---- no.3 ---
+--- no.2 ---
 ────────────────────────────────────────────
  TASK 02 — Permission Policy 적용
 ────────────────────────────────────────────
@@ -82,3 +82,80 @@ archive/              소유자만 Directory 내부에 접근하고 Archive를 �
 -> 원치 않는 사용자가 운영 도구나 자동화 시스템 쉘에 접근해서 시스템의 안정적인 운영을 방해할 수 있기 때문
 7. 모든 대상에 777 Permission을 부여하는 방식이 왜 적절하지 않은가?
 -> 시스템 운영 및 보안 문제
+
+
+
+--- no.3 ---
+────────────────────────────────────────────
+ TASK 03 — 현재 Server 상태 조사
+────────────────────────────────────────────
+결과를 reports/baseline.txt 에 기록한다.
+다음 정보가 반드시 포함되어야 한다.
+- 현재 사용자
+- 현재 Shell
+- Shell Process PID
+- 현재 실행 중인 Process 일부
+- 현재 실행 중인 Service 상태
+- SSH 관련 Package 설치 여부
+- 현재 작업 Directory- 현재 Environment Variable 일부
+
+
+
+--- no.4 ---
+────────────────────────────────────────────
+ TASK 04 — Test Process 생성
+────────────────────────────────────────────
+운영 Tool이 실제 Process를 찾을 수 있는지 검증하기 위해 Test Process를 직접 생성한다.
+Background에서 충분한 시간 동안 실행되는 sleep Process를 하나 생성하라.
+
+반드시 다음 순서를 따른다.
+1. Background Process 생성
+2. $!로 PID 확인
+3. ps 또는 pgrep 등으로 Process 확인
+4. Process가 존재한다는 증거 확보
+
+
+
+--- no.5 ---
+────────────────────────────────────────────
+ TASK 05 — targets.txt 내용 작성
+────────────────────────────────────────────
+운영 도구가 검사할 Process 목록을 쉽게 관리하도록 하기위해 data/targets.txt 내부에 검사가 필요한 Process명을 삽입한다. 
+data/targets.txt에는 최소 다음 두 Process가 있어야 한다. 
+- bash
+- sleep
+
+
+
+--- no.6 ---
+────────────────────────────────────────────
+ TASK 06 — Linux Operation Tool 개발
+────────────────────────────────────────────
+다음 Script를 직접 작성하라.
+scripts/ops-tool.sh
+
+기능 1 — help
+다음 명령을 실행했을 때 사용 가능한 Action과 사용 방법이 출력되어야 한다.
+./scripts/ops-tool.sh help
+필수 조건
+- Help Message는 두 번째 PDF에서 배운 Here Document를 이용한다. 
+출력에는 최소한
+- help
+- service
+- process
+- report
+네 Action에 대한 설명이 있어야 한다.
+
+기능 2 — service
+다음 형태로 실행한다.
+./scripts/ops-tool.sh service sshd
+Script는 지정된 Service의 상태를 확인하고
+정상 또는 비정상을 구분해야 한다.
+필수 조건- Command의 Exit Status를 이용해 결과를 판단한다.- 즉 화면에 보이는 문자열만 보고 판단하는 것이 아니라
+1. Command 실행
+2. $? 
+3. 0 / non-zero
+4. 정상 / 실패 판단
+구조가 있어야 한다.
+만약 본인의 VM에 sshd가 없다면 Package 관리 명령을 이용해 SSH 관련 Package 상태를 
+먼저 조사하고 그 과정을 README.txt에 기록한다.
