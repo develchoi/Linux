@@ -9,7 +9,7 @@
 [요구 조건]
 1. dev_group이라는 이름의 그룹을 생성하세요.
 2. dev_user라는 사용자를 생성하고, dev_group에 포함시키세요.
-3. 최상위 경로에 /dev_share 디렉터리를 생성하세요.
+3. 최상위 경로에 /dev_share 디렉터리를 생성하세요. (https://github.com/develchoi/Linux/issues/4)
 4. /dev_share 디렉터리의 소유 그룹을 dev_group으로 변경하세요.
 5. [핵심 권한] dev_group에 속한 사람만 이 폴더에서 파일을 읽고 쓸 수 있게 하고, 그 외의 모든
 외부 사용자(others)는 접근(읽기, 쓰기, 이동)할 수 없도록 권한을 설정하세요.
